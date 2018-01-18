@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import './App.css';
-import Login from './User/Login'
-import Signup from './User/Signup'
+import LoginForm from './User/LoginForm'
+import SignupForm from './User/SignupForm'
+import Landing from './Landing'
 import firebase from './firebase'
 
 //this is like main, you put your components in this
@@ -11,9 +12,19 @@ class App extends Component {
 
   render() {
     return(
+      <Router>
       <div>
-        <Login />
+        <Landing />
+        <Route
+          exact path="/signup"
+          component={SignupForm} />
+
+        <Route
+          exact path="/login"
+          component={LoginForm} />
+
       </div>
+      </Router>
     )
   }
 }

@@ -1,5 +1,5 @@
-body {
-    background: url('http://i.imgur.com/Eor57Ae.jpg') no-repeat fixed center center;
+/* body {
+    background: url('images/2.jpg') no-repeat fixed center center;
     background-size: cover;
     font-family: Montserrat;
 }
@@ -84,3 +84,11 @@ body {
 .login-block button:hover {
     background: #ff7b81;
 }
+
+.signupText {
+    font-size: 12px;
+    display: flex;
+    margin-top: 0;
+    flex-direction: row;
+    align-items: center
+} */
