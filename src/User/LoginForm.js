@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link, NavLink} from 'react-router-dom'
-import '../App.css';
+import '../Landing.css';
 import { auth, provider } from '../firebase'
 
 const byPropKey = (propertyName, value) => () => ({

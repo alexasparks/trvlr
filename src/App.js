@@ -5,7 +5,7 @@ import LoginForm from './User/LoginForm'
 import SignupForm from './User/SignupForm'
 import Landing from './Landing'
 import firebase from './firebase'
-import worldMap from './worldMap'
+import USMap from './USMap'
 
 //this is like main, you put your components in this
 
@@ -15,7 +15,7 @@ class App extends Component {
     return(
       <Router>
       <div>
-        <Landing />
+        {/* <Landing /> */}
         <Route
           exact path="/signup"
           component={SignupForm} />
@@ -26,7 +26,7 @@ class App extends Component {
 
         <Route
           exact path="/map"
-          component={worldMap}/>
+          component={USMap}/>
       </div>
       </Router>
     )

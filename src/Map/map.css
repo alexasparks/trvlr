@@ -1,0 +1,13 @@
+body {
+  background: url('../images/6.jpg') no-repeat fixed center center;
+  background-size: cover;
+  font-family: Montserrat;
+}
+
+.us-map {
+  padding-top: 5%;
+  padding-left: 25%;
+  padding-right: 25%;
+  position: sticky;
+  position: fixed
+}
