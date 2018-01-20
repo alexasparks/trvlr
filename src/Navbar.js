@@ -6,9 +6,7 @@ let Navbar = props => {
   return(
     <div className='navbar'>
     <ul>
-      <li><NavLink to='/usmap'>US Map</NavLink></li>
-      <li><NavLink to='/worldmap'>World Map</NavLink></li>
-      <li><NavLink to='/logout'>Logout</NavLink></li>
+      <li><Link to='/worldmap'><img className='icon' id='world' src='https://cdn.iconscout.com/public/images/icon/free/png-512/earth-global-globe-international-map-planet-world-31f086acb2c23d8b-512x512.png'/></Link></li>
     </ul>
     </div>
   )

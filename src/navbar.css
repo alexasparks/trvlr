@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(8, 9, 80);
+  background-color: rgba(8, 9, 80, 0.322);
   position: fixed;
   z-index: 999;
   top: 0;
@@ -14,9 +14,17 @@
 .navbar li {
   float: left;
   display: block;
-  color: rgb(58, 33, 92);
+  color: rgba(88, 41, 154, 0.24);
   text-align: center;
   padding: 14px 16px;
-  font-family: monospace;
+  font-family: Montserrat;
   text-decoration: none;
+}
+
+.icon {
+  height: 5%;
+  width: 5%;
+  padding-left: 0;
+  margin-left: 0;
+  margin-right: 95%;
 }

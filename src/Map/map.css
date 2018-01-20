@@ -5,7 +5,7 @@ body {
 }
 
 .us-map {
-  padding-top: 10%;
+  padding-top: 5%;
   padding-left: 25%;
   padding-right: 25%;
   position: sticky;
@@ -20,5 +20,3 @@ body {
 .countryBody:hover {
   fill: #ff656c
 }
-
-
