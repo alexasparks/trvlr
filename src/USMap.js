@@ -10,7 +10,6 @@ class WorldMap extends Component {
       selectedStates: []
     }
     this.handleClick = this.handleClick.bind(this)
-    this.handleHover = this.handleHover.bind(this)
   }
 
   handleClick = e => {
@@ -27,12 +26,6 @@ class WorldMap extends Component {
     }
   }
 
-  handleHover = e => {
-    return(
-      <p>{e.target.id}</p>
-    )
-  }
-
     render() {
       return(
         <svg className='us-map'
@@ -40,7 +33,7 @@ class WorldMap extends Component {
           <g id='outlines'>
             { this.state.states.map(state => {
               return(
-              <path className="stateBody" id={state.id} d={state.coords} fill={this.state.selectedStates.includes(state.id) ? '#FF656C' : state.fill} onClick={this.handleClick} onMouseOver={this.handleHover}/>
+              <path className="stateBody" id={state.id} d={state.coords} fill={this.state.selectedStates.includes(state.id) ? '#FF656C' : state.fill} onClick={this.handleClick} />
               )
             })
             }
