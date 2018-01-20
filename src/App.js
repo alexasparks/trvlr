@@ -6,6 +6,8 @@ import SignupForm from './User/SignupForm'
 import Landing from './Landing'
 import firebase from './firebase'
 import USMap from './USMap'
+import WorldMap from './WorldMap'
+import Navbar from './Navbar'
 
 //this is like main, you put your components in this
 
@@ -15,7 +17,7 @@ class App extends Component {
     return(
       <Router>
       <div>
-        {/* <Landing /> */}
+        <Navbar />
         <Route
           exact path="/signup"
           component={SignupForm} />
@@ -25,8 +27,12 @@ class App extends Component {
           component={LoginForm} />
 
         <Route
-          exact path="/map"
+          exact path="/usmap"
           component={USMap}/>
+
+        <Route
+          exact path="/worldmap"
+          component={WorldMap}/>
       </div>
       </Router>
     )

@@ -1,0 +1,22 @@
+.navbar ul {
+  color: rgb(6, 61, 57);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(8, 9, 80);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navbar li {
+  float: left;
+  display: block;
+  color: rgb(58, 33, 92);
+  text-align: center;
+  padding: 14px 16px;
+  font-family: monospace;
+  text-decoration: none;
+}
