@@ -31,19 +31,14 @@ class USMap extends Component {
         let stateData = stateArr[singleState]
 
         if(!this.state.destinations.includes(stateData)){
-          this.state.destinations.push(stateData)
+          let addDestination = database.ref('/destinations');
+          addDestination.push({
+            destination: stateData
+          })
         }
-
         this.setState({currentFill})
       }
     }
-
-    let addDestination = database.ref('/destinations');
-    addDestination.push({
-      destination: this.state.destinations
-    })
-
-    console.log(this.state.destinations)
   }
 
   render() {

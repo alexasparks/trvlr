@@ -5,13 +5,15 @@ import countries from './dataForMaps/countries'
 import USMap from './USMap'
 import {Popup} from 'semantic-ui-react'
 import './css/map.css'
+import {database} from './firebase'
 
 class WorldMap extends Component {
   constructor() {
     super()
     this.state = {
       countries: countries,
-      selectedCountry: []
+      selectedCountry: [],
+      destinations: []
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -25,9 +27,18 @@ class WorldMap extends Component {
     for(var country in countryArr){
       if(countryArr[country].id === e.target.id){
         let currentFill = countryArr[country].fill
+        let countryData = countryArr[country]
+
+        if(!this.state.destinations.includes(countryData) && e.target.id !== 'US'){
+          let addDestination = database.ref('/destinations');
+          addDestination.push({
+            destination: countryData
+          })
+        }
         this.setState({currentFill})
       }
     }
+
   }
 
   render(){
