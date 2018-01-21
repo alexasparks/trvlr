@@ -1,12 +1,11 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
-import createLogger from 'redux-logger'
+import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
-import USMap from '../USMap'
-import WorldMap from '../WorldMap'
+import destinations from './destinations'
 
-// const reducer = combineReducers({})
+const reducer = combineReducers({destinations})
 
-const middleWare = applyMiddleware(
+const middleware = applyMiddleware(
   thunkMiddleware,
   createLogger({collapsed: true}
 ))
@@ -14,3 +13,4 @@ const middleWare = applyMiddleware(
 export const store = createStore(reducer, middleware)
 
 export default store
+export * from './destinations'

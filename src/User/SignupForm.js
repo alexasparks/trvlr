@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Link, NavLink} from 'react-router-dom'
-import '../Landing.css'
+import {Link, NavLink, withRouter} from 'react-router-dom'
+import '../css/Landing.css'
 import { auth, provider } from '../firebase'
 
 const INITIAL_STATE = {
@@ -33,6 +33,7 @@ class Signup extends Component {
     auth.createUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         this.setState(() => ({...INITIAL_STATE}))
+        this.props.history.push('/worldmap')
       })
       .catch(error => {
         this.setState(byPropKey('error', error))
@@ -57,7 +58,7 @@ class Signup extends Component {
 
     return (
       <div className="login-block">
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} history={this.props.history}>
         <h1>Signup</h1>
         <input
         value={name}

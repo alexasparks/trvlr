@@ -1,71 +1,73 @@
 import React, { Component } from 'react';
 import {Link, NavLink} from 'react-router-dom'
-import '../Landing.css';
+import '../css/Landing.css';
 import { auth, provider } from '../firebase'
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
 })
 
+const INITIAL_STATE = {
+  email: '',
+  password: '',
+  error: null
+}
+
 class Login extends Component {
-  constructor(){
-    super()
-    this.state = {
-      name: '',
-      email: '',
-      passwordOne: '',
-      passwordTwo: '',
-      error: null
-    }
-    this.login = this.login.bind(this)
-    this.signup = this.signup.bind(this)
-    // this.handleSubmit = this.handleSubmit.bind(this)
+  constructor(props){
+    super(props)
+    this.state = {...INITIAL_STATE};
+
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ user });
-      }
-    })
-  }
+  handleSubmit = (e) => {
+    const {
+      email,
+      password
+    } = this.state
 
-  signup(e) {
-    console.log('signup')
-    let email = e.target.signupEmail.value
-    let password = e.target.signupPassword.value
-    auth.createUserWithEmailAndPassword(email, password)
-      .catch(error => console.log(error.message))
-  }
-
-  login(e) {
-    console.log('login')
-    let email = e.target.loginEmail.value
-    let password = e.target.loginPassword.value
     auth.signInWithEmailAndPassword(email, password)
-      .catch(error => console.log(error.message))
+      .then(() => {
+        this.setState(() => ({...INITIAL_STATE}))
+        this.props.history.push('/worldmap')
+      })
+      .catch(error => {
+        this.setState(byPropKey('error', error))
+      })
+    e.preventDefault()
   }
 
-  // handleSubmit(e) {
-
-  // }
-  //if pw invalid, extend the form
   render() {
+    const {
+      email,
+      password,
+      error
+    } = this.state
+
+    const isInvalid =
+      password === '' ||
+      email === '';
+
     return (
       <div className="login-block">
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <h1>Login</h1>
         <input
-        id="loginEmail"
-        type="text"
-        placeholder="email address"/>
+        value={email}
+        onChange={e => this.setState(byPropKey('email', e.target.value))}
+        placeholder='email'
+        />
         <input
-        id="loginPassword"
-        type="text"
-        placeholder="password"/>
-        <button onClick={this.login}>Submit</button>
+        value={password}
+        onChange={e => this.setState(byPropKey('password', e.target.value))}
+        type='password'
+        placeholder='password'
+        />
+        <button disabled={isInvalid} type="submit">Submit</button>
+        { error && <p>{error.message}</p>}
       </form>
-      <p className="signupText">Don't have an account? <NavLink to="/signup"> Create New Account</NavLink></p>
+      <p className="signupText">Don't have an account? <NavLink to="/"> Create New Account</NavLink></p>
       </div>
     );
   }

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import countries from './countries'
 import USMap from './USMap'
 import {Popup} from 'semantic-ui-react'
-import './Map/map.css'
+import './css/map.css'
 
 class WorldMap extends Component {
   constructor() {
@@ -40,10 +40,14 @@ class WorldMap extends Component {
               return (
                 country.id === 'US' ?
 
-                <Popup className='popup' trigger={<Link to='/usmap'>
-                <path className='countryBody' id={country.id} d={country.d} fill={this.state.selectedCountry.includes(country.id) ? '#FF656C' : country.fill} onClick={this.handleClick}/> </Link>} content={country.name}/> :
+                <Popup className='popup'
+                  trigger={<Link to='/usmap'>
+                  <path className='countryBody' id={country.id} d={country.d} fill={this.state.selectedCountry.includes(country.id) ? '#FF656C' : country.fill} onClick={this.handleClick}/> </Link>}
+                  content={country.name}/> :
 
-                <Popup trigger={<path className='countryBody' id={country.id} d={country.d} fill={this.state.selectedCountry.includes(country.id) ? '#FF656C' : country.fill} onClick={this.handleClick}/>} content={country.name} />
+                <Popup
+                  trigger={<path className='countryBody' id={country.id} d={country.d} fill=    {this.state.selectedCountry.includes(country.id) ? '#FF656C' : country.fill} onClick= {this.handleClick}/>}
+                  content={country.name} />
               )
             })
           }

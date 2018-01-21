@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import './App.css';
+import './css/App.css';
 import LoginForm from './User/LoginForm'
 import SignupForm from './User/SignupForm'
 import Landing from './Landing'
@@ -19,7 +19,7 @@ class App extends Component {
       <div>
         <Navbar />
         <Route
-          exact path="/signup"
+          exact path="/"
           component={SignupForm} />
 
         <Route
