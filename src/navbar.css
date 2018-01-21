@@ -1,14 +1,16 @@
+.navbar {
+  margin-top: -5px;
+  width: 100%;
+  position: fixed;
+  z-index: 2
+}
+
 .navbar ul {
   color: rgb(6, 61, 57);
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgba(8, 9, 80, 0.322);
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  width: 100%;
+  background-color: rgba(8, 9, 80, 0);
 }
 
 .navbar li {
@@ -22,8 +24,8 @@
 }
 
 .icon {
-  height: 5%;
-  width: 5%;
+  height: 10%;
+  width: 10%;
   padding-left: 0;
   margin-left: 0;
   margin-right: 95%;

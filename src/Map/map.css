@@ -11,12 +11,21 @@ body {
   position: sticky;
   position: fixed;
   fill: #ffffff;
+  -webkit-transition: -webkit-transform 500ms;
 }
 
 .stateBody:hover {
-  fill: #ff656c;
+  fill: #ff656c
 }
 
 .countryBody:hover {
   fill: #ff656c
+}
+
+.world-map {
+  position: relative;
+}
+
+.popup {
+  color: rgb(165, 165, 170);
 }
