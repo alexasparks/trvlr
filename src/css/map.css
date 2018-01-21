@@ -6,11 +6,11 @@ body {
 
 .us-map {
   padding-top: 5%;
-  padding-left: 25%;
+  padding-left: 24%;
   padding-right: 25%;
   position: sticky;
   position: fixed;
-  fill: #ffffff;
+  fill: #8ccda9;
   -webkit-transition: -webkit-transform 500ms;
 }
 
@@ -24,8 +24,10 @@ body {
 
 .world-map {
   position: relative;
+  position: sticky
 }
 
 .popup {
-  color: rgb(165, 165, 170);
+  color: white;
+  outline-color: black
 }

@@ -5,6 +5,7 @@ import countries from './countries'
 import USMap from './USMap'
 import {Popup} from 'semantic-ui-react'
 import './css/map.css'
+import Randomizer from './Randomizer'
 
 class WorldMap extends Component {
   constructor() {
@@ -53,6 +54,7 @@ class WorldMap extends Component {
           }
         </g>
       </svg>
+      <Randomizer />
       </div>
     )
   }

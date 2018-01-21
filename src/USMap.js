@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Popup } from 'semantic-ui-react'
 import './css/map.css'
 import states from './states'
+import {storeDestinations} from './Store/destinations'
+import Randomizer from './Randomizer'
 
 class USMap extends Component {
   constructor(props) {
@@ -21,16 +23,19 @@ class USMap extends Component {
     let currentSelectedStates = this.state.selectedStates
     currentSelectedStates.push(currentId)
 
-    if(!this.state.wantToGo.includes(currentId)){
-      this.state.wantToGo.push(currentId)
-    }
-
     for(var singleState in stateArr){
       if(stateArr[singleState].id === e.target.id){
         let currentFill = stateArr[singleState].fill
+        let stateName = stateArr[singleState].name
+
+        if(!this.state.wantToGo.includes(stateName)){
+          this.state.wantToGo.push(stateName)
+        }
+
         this.setState({currentFill})
       }
     }
+    console.log(this.state.wantToGo)
   }
 
   render() {
@@ -50,6 +55,7 @@ class USMap extends Component {
         </g>
         />
       </svg>
+      <Randomizer state={this.state.wantToGo}/>
       </div>
     )
   }

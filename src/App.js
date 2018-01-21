@@ -8,7 +8,7 @@ import {auth} from './firebase'
 import USMap from './USMap'
 import WorldMap from './WorldMap'
 import Navbar from './Navbar'
-import LogoutButton from './User/LogoutButton'
+import PageNotFound from './PageNotFound'
 
 //this is like main, you put your components in this
 
@@ -35,7 +35,6 @@ class App extends Component {
         {this.state.authUser
           ? <div>
             <Navbar />
-            <LogoutButton />
             <Route
             exact path="/usmap"
             component={USMap}/>
@@ -53,6 +52,13 @@ class App extends Component {
             <Route
             exact path="/login"
             component={LoginForm} />
+            <Route
+            exact path="/usmap"
+            component={PageNotFound}/>
+
+            <Route
+            exact path="/worldmap"
+            component={PageNotFound}/>
             </div>
         }
       </Router>

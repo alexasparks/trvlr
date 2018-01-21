@@ -4,3 +4,9 @@ body {
   font-family: sans-serif;
 }
 
+.message {
+  font-family: Montserrat;
+  text-align: center;
+  margin-top: 5%;
+  color: white
+}
