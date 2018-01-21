@@ -4,36 +4,57 @@ import './css/App.css';
 import LoginForm from './User/LoginForm'
 import SignupForm from './User/SignupForm'
 import Landing from './Landing'
-import firebase from './firebase'
+import {auth} from './firebase'
 import USMap from './USMap'
 import WorldMap from './WorldMap'
 import Navbar from './Navbar'
+import LogoutButton from './User/LogoutButton'
 
 //this is like main, you put your components in this
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      authUser: null
+    }
+  }
+
+  componentDidMount () {
+    auth.onAuthStateChanged(authUser => {
+      authUser
+        ? this.setState(() => ({ authUser }))
+        : this.setState(() => ({ authUser: null }))
+    })
+  }
 
   render() {
     return(
       <Router>
-      <div>
-        <Navbar />
-        <Route
-          exact path="/"
-          component={SignupForm} />
+        {this.state.authUser
+          ? <div>
+            <Navbar />
+            <LogoutButton />
+            <Route
+            exact path="/usmap"
+            component={USMap}/>
 
-        <Route
-          exact path="/login"
-          component={LoginForm} />
+            <Route
+            exact path="/worldmap"
+            component={WorldMap}/>
+            </div>
 
-        <Route
-          exact path="/usmap"
-          component={USMap}/>
+          : <div>
+            <Route
+            exact path="/"
+            component={SignupForm} />
 
-        <Route
-          exact path="/worldmap"
-          component={WorldMap}/>
-      </div>
+            <Route
+            exact path="/login"
+            component={LoginForm} />
+            </div>
+        }
       </Router>
     )
   }

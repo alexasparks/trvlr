@@ -33,3 +33,7 @@
   margin-left: 0;
   margin-right: 95%;
 }
+
+.logoutButton:hover {
+  color: rgb(45, 45, 45)
+}
