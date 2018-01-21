@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { Popup } from 'semantic-ui-react'
 import './css/map.css'
-import states from './states'
+import states from './dataForMaps/states'
 import {storeDestinations} from './Store/destinations'
-import Randomizer from './Randomizer'
+import Destination from './Destination'
+import {database} from './firebase'
 
 class USMap extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class USMap extends Component {
     this.state = {
       states: states,
       selectedStates: [],
-      wantToGo: []
+      destinations: [],
+      finalDestination: {}
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -26,16 +28,22 @@ class USMap extends Component {
     for(var singleState in stateArr){
       if(stateArr[singleState].id === e.target.id){
         let currentFill = stateArr[singleState].fill
-        let stateName = stateArr[singleState].name
+        let stateData = stateArr[singleState]
 
-        if(!this.state.wantToGo.includes(stateName)){
-          this.state.wantToGo.push(stateName)
+        if(!this.state.destinations.includes(stateData)){
+          this.state.destinations.push(stateData)
         }
 
         this.setState({currentFill})
       }
     }
-    console.log(this.state.wantToGo)
+
+    let addDestination = database.ref('/destinations');
+    addDestination.push({
+      destination: this.state.destinations
+    })
+
+    console.log(this.state.destinations)
   }
 
   render() {
@@ -55,7 +63,6 @@ class USMap extends Component {
         </g>
         />
       </svg>
-      <Randomizer state={this.state.wantToGo}/>
       </div>
     )
   }

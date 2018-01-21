@@ -1,12 +1,9 @@
 .navbar {
-  margin-top: -5px;
   display: inline;
-  width: 100%;
   position: fixed;
   z-index: 999;
-  top: 0;
   left: 0;
-  width: 100%;
+  width: 30%
 }
 
 .navbar ul {
@@ -19,23 +16,17 @@
 
 .navbar li {
   float: left;
-  /* display: block; */
   color: #58299a3d;
-  /* text-align: center; */
-  padding-left: 1%;
+  padding-left: 2%;
   font-family: Montserrat;
-  /* text-decoration: none; */
 }
 
 .icon {
-  height: 10%;
-  width: 10%;
+  height: 50px;
+  width: 50px;
   padding-left: 0;
   margin-left: 0;
-  margin-right: 95%;
+  margin-right: 95%
 }
 
-.logout:hover {
-  color: red
-}
 

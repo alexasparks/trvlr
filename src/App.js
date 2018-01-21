@@ -9,6 +9,7 @@ import USMap from './USMap'
 import WorldMap from './WorldMap'
 import Navbar from './Navbar'
 import PageNotFound from './PageNotFound'
+import Destination from './Destination'
 
 //this is like main, you put your components in this
 
@@ -42,6 +43,10 @@ class App extends Component {
             <Route
             exact path="/worldmap"
             component={WorldMap}/>
+
+            <Route
+            exact path="/destination"
+            component={Destination} />
             </div>
 
           : <div>
@@ -59,6 +64,10 @@ class App extends Component {
             <Route
             exact path="/worldmap"
             component={PageNotFound}/>
+
+            <Route
+            exact path="/destination"
+            component={PageNotFound} />
             </div>
         }
       </Router>

@@ -1,11 +1,10 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
-import countries from './countries'
+import countries from './dataForMaps/countries'
 import USMap from './USMap'
 import {Popup} from 'semantic-ui-react'
 import './css/map.css'
-import Randomizer from './Randomizer'
 
 class WorldMap extends Component {
   constructor() {
@@ -54,7 +53,6 @@ class WorldMap extends Component {
           }
         </g>
       </svg>
-      <Randomizer />
       </div>
     )
   }
