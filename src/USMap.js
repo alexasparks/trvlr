@@ -28,7 +28,7 @@ class USMap extends Component {
     for(var singleState in stateArr){
       if(stateArr[singleState].id === e.target.id){
         let currentFill = stateArr[singleState].fill
-        let stateData = stateArr[singleState]
+        let stateData = stateArr[singleState].name
 
         if(!this.state.destinations.includes(stateData)){
           let addDestination = database.ref('/destinations');

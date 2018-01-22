@@ -27,7 +27,7 @@ class WorldMap extends Component {
     for(var country in countryArr){
       if(countryArr[country].id === e.target.id){
         let currentFill = countryArr[country].fill
-        let countryData = countryArr[country]
+        let countryData = countryArr[country].name
 
         if(!this.state.destinations.includes(countryData) && e.target.id !== 'US'){
           let addDestination = database.ref('/destinations');
