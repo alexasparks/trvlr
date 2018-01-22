@@ -30,12 +30,12 @@ class USMap extends Component {
         let currentFill = stateArr[singleState].fill
         let stateData = stateArr[singleState].name
 
-        if(!this.state.destinations.includes(stateData)){
-          let addDestination = database.ref('/destinations');
-          addDestination.push({
-            destination: stateData
-          })
-        }
+        // if(!this.state.destinations.includes(stateData)){
+        //   let addDestination = database.ref('/destinations');
+        //   addDestination.push({
+        //     destination: stateData
+        //   })
+        // }
         this.setState({currentFill})
       }
     }

@@ -11,7 +11,6 @@ const LogoutButton = () => {
     onClick={() => {
       auth.signOut()
       database.ref('destinations').set({destinations: null})
-
     }}
     ><img alt='logout' className="logoutImage" src="https://png.icons8.com/material/50/000000/shutdown.png"/>
     </NavLink>

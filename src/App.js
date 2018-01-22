@@ -37,6 +37,10 @@ class App extends Component {
           ? <div>
             <Navbar />
             <Route
+            exact path="/"
+            component={WorldMap} />
+
+            <Route
             exact path="/usmap"
             component={USMap}/>
 
