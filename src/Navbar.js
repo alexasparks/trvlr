@@ -3,6 +3,7 @@ import {Link, NavLink} from 'react-router-dom'
 import LogoutButton from './User/LogoutButton'
 import './css/navbar.css'
 import {database} from './firebase'
+import {Button, Header, Image, Modal} from 'semantic-ui-react'
 
 let Navbar = props => {
   return(
@@ -15,15 +16,18 @@ let Navbar = props => {
         </Link>
       </li>
       <li className='icon'>
+
       <Link
-        to='/destination'
+        to='/worldmap'
         onClick={() => {
           let assortment = []
           let dbDestination = database.ref('/destinations')
           dbDestination.on('child_added', snap => {
             assortment.push(snap.val())
           })
-          console.log(assortment)
+          let randomIndex = Math.floor(Math.random() * (assortment.length))
+
+          console.log(assortment[randomIndex])
         }
         } >
         <img src="https://png.icons8.com/ios/50/000000/roulette.png"/>
