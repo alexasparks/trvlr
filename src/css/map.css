@@ -8,8 +8,8 @@ body {
   padding-top: 5%;
   padding-left: 24%;
   padding-right: 25%;
-  /* position: sticky; */
-  /* position: fixed; */
+  position: sticky;
+  position: fixed;
   fill: #8ccda9;
   -webkit-transition: -webkit-transform 500ms;
 }
@@ -20,11 +20,6 @@ body {
 
 .countryBody:hover {
   fill: #ff656c
-}
-
-.world-map {
-  position: relative;
-  position: sticky
 }
 
 .popup {

@@ -3,8 +3,8 @@ import {database} from './firebase'
 import WorldMap from './WorldMap'
 import states from './dataForMaps/states'
 import countries from './dataForMaps/countries'
-import Fade from 'react-reveal/Fade'
 
+let chosenCountry
 class Destination extends Component {
   constructor(props) {
     super(props)
@@ -21,7 +21,7 @@ class Destination extends Component {
     database.ref('destinations').set({destinations: null})
   }
 
-  componentDidMount() {
+  componentWillMount() {
     let assortment = []
     let dbDestination = database.ref('/destinations')
     //maybe add in d-coords and try to do a modal render
@@ -40,10 +40,10 @@ class Destination extends Component {
         })
       }
     }
-
     countries.map(country => {
       if(country.name === assortment[randomIndex]){
         country.fill = this.state.countryFill
+        chosenCountry = country.name
       }
     })
   }

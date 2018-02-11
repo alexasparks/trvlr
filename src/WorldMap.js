@@ -44,7 +44,7 @@ class WorldMap extends Component {
   render(){
     return (
       <div className='world-map'>
-      <svg xmlns='http://www.w3.org/2000/svg' height='1001' width='2000' position='fixed'>
+      <svg xmlns='http://www.w3.org/2000/svg' height='1001' width='2000'>
         <g>
           {
             this.state.countries.map(country => {
